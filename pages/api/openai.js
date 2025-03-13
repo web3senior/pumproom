@@ -4,10 +4,11 @@ import LSP7ABI from '../../app/abi/lsp7.json'
 import ARFIAirdropABI from '../../app/abi/airdrop.json'
 import { ethers } from 'ethers'
 
-export const config = {
-  maxDuration: 100, // 5 seconds
-};
-
+// export const config = {
+//   maxDuration: 60, // 5 seconds
+// };
+export const maxDuration = 60; // This function can run for a maximum of 5 seconds
+ 
 const openai = new OpenAI({
   dangerouslyAllowBrowser: false,
   apiKey: process.env.OPENAI_API_KEY,
