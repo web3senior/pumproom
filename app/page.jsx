@@ -13,7 +13,6 @@ import { useUpProvider } from './contexts/UpProvider'
 import Web3 from 'web3'
 import styles from './page.module.scss'
 
-
 // export const metadata = {
 //   title: 'Acme Dashboard',
 //   description: 'The official Next.js Course Dashboard, built with App Router.',
@@ -24,7 +23,7 @@ export default function Home() {
   const [data, setData] = useState({ list: [] })
   const [conversation, setConversation] = useState([])
   const inputRef = useRef()
-
+  const auth = useUpProvider()
 
   const sendMessage = (e) => {
     e.preventDefault()
@@ -50,7 +49,7 @@ export default function Home() {
     const raw = JSON.stringify({
       profile: {
         role: 'user',
-        content: `Connected wallet information ${JSON.stringify({})}`,
+        content: `Connected wallet information ${JSON.stringify(auth.accounts[0])}`,
       },
       old_messages: conversation,
       messages: {
@@ -91,17 +90,12 @@ export default function Home() {
       .catch((error) => console.error(error))
   }
 
-  const compile = async()=>{
-
-  }
+  const compile = async () => {}
 
   useEffect(() => {}, [])
 
   return (
     <div className={styles.page}>
-
-
-
       <main className={styles.main}>
         {data.list.length === 0 && (
           <div className={`${styles.hi} d-flex flex-column align-items-center justify-content-center`}>
@@ -140,9 +134,7 @@ export default function Home() {
       <footer className={styles.footer}>
         <form method="POST" onSubmit={(e) => sendMessage(e)}>
           <input ref={inputRef} type={`text`} placeholder={`Ask ${process.env.NEXT_PUBLIC_NAME}`} />
-          <button style={{background:`pink`, color:`white`}}>
-          send
-          </button>
+          <button style={{ background: `pink`, color: `white` }}>send</button>
         </form>
       </footer>
     </div>
