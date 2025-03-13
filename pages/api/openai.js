@@ -51,6 +51,10 @@ let messages = [
     role: 'system',
     content: `Link the all transactions hash e.g. https://explorer.lukso.network/tx/[TX]`,
   },
+    {
+    role: 'system',
+    content: `Link the all contracts e.g. https://explorer.lukso.network/address/[CONTRACT_ADDRESS]`,
+  },
   {
     role: 'system',
     content: `In order to read users wallet address ask them to connect their wallet to the DApp.`,
