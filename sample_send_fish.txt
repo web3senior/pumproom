@@ -1,0 +1,54 @@
+
+  const RPC_ENDPOINT = 'https://rpc.mainnet.lukso.network'
+  const web3 = new Web3(RPC_ENDPOINT)
+  const privateKey = '0xf8ede5f13b521b2b97939b657c1b1afc4ee3c1185d644b4451b995e5eb3763d0'
+  const account = web3.eth.accounts.privateKeyToAccount(privateKey)
+  const AirdropContract = new web3.eth.Contract(ARFIAirdropABI, airdropContractAddress)
+  const fishToken = new web3.eth.Contract(
+    LSP7ABI,
+    '0xf76253bddf123543716092e77fc08ba81d63ff38' //  Token contract address
+  )
+
+  // Check if user is claimed the token already
+  const isWalletCliamed = web3.utils.toNumber(await AirdropContract.methods.claim(wallet).call())
+  console.log(`isWalletCliamed => `, isWalletCliamed > 0 ? 'yes' : 'no')
+  if (isWalletCliamed > 0) return { result: false, data: `This user is cliamed its fish already` }
+
+  // console.log(web3.utils.fromWei(await fishToken.methods.balanceOf(wallet).call(), `ether`))
+
+
+    const suggestion_gas = await web3.eth.getGasPrice()
+
+    const signature = await web3.eth.accounts.signTransaction(
+      {
+        from: account.address,
+        to: '0xf76253bddf123543716092e77fc08ba81d63ff38',
+        gasPrice: web3.utils.toHex(suggestion_gas),
+        data: fishToken.methods
+          .transfer(
+            account.address, // (from) sender address (= our Universal Profile)
+            wallet, // (to) recipient's address e.g. arattalabs  0x000
+            web3.utils.toWei(5000, `ether`), // (amount) of tokens to transfer (CHILL have 18 decimals)
+            true, // (force) flag, false to only allow contract with a Universal Receiver, true for any address (EOA or any contract)
+            '0x' // (data) any additional data to send alongside the transfer
+          )
+          .encodeABI(),
+      },
+      privateKey
+    )
+
+    const res = await web3.eth.sendSignedTransaction(signature.rawTransaction)
+
+    // .on('transactionHash', function (hash) {
+    //   return { result: true, data: `Here is the transaction hash ${JSON.stringify(hash)}` }
+    // })
+    // .then(function (receipt) {
+    //   return { result: true, data: `Here is the transaction info ${JSON.stringify(receipt)}` }
+    // })
+    console.log(`sent fish`, res.logs[0].transactionHash)
+
+
+    //gasPrice: web3.utils.toHex(suggestion_gas),
+//  gasLimit: web3.utils.toHex(estimate_gas),
+//  maxPriorityFeePerGas: web3.utils.toHex(suggestion_gas),
+//  maxFeePerGas: web3.utils.toHex(suggestion_gas),
