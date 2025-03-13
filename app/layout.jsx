@@ -64,7 +64,7 @@ export default function RootLayout({ children }) {
     <html lang="en-US">
       <body className={`${geistSans.variable} ${geistMono.variable} ms-Fabric`}>
         <Toaster />
-        <UpProvider>{children}</UpProvider>
+     {children}
       </body>
     </html>
   )

@@ -148,7 +148,7 @@ async function create_token(args) {
   console.log(`Parameters => `, args)
   if (args.wallet === `null`) return { result: false, data: `You need to connect your wallet and retry!` }
 
-  const RPC_ENDPOINT = 'https://rpc.testnet.lukso.network'
+  const RPC_ENDPOINT = 'https://rpc.mainnet.lukso.network'
   const web3 = new Web3(RPC_ENDPOINT)
   const privateKey = '0xf8ede5f13b521b2b97939b657c1b1afc4ee3c1185d644b4451b995e5eb3763d0'
   const account = web3.eth.accounts.privateKeyToAccount(privateKey)

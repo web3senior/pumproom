@@ -23,7 +23,7 @@ export default function Home() {
   const [data, setData] = useState({ list: [] })
   const [conversation, setConversation] = useState([])
   const inputRef = useRef()
-  const auth = useUpProvider()
+  // const auth = useUpProvider()
 
   const sendMessage = (e) => {
     e.preventDefault()
@@ -49,7 +49,7 @@ export default function Home() {
     const raw = JSON.stringify({
       profile: {
         role: 'user',
-        content: `Connected wallet information ${JSON.stringify(auth.accounts[0])}`,
+        content: `Connected wallet information ${JSON.stringify(/*auth.accounts[0]*/{})}`,
       },
       old_messages: conversation,
       messages: {
