@@ -48,8 +48,8 @@ export default function Home() {
 
     const raw = JSON.stringify({
       profile: {
-        role: 'user',
-        content: `Connected wallet information ${JSON.stringify(auth.accounts[0])}`,
+        role: 'system',
+        content: `Connected wallet address ${JSON.stringify(auth.accounts[0])}`,
       },
       old_messages: conversation,
       messages: {
@@ -90,10 +90,10 @@ export default function Home() {
       .catch((error) => console.error(error))
   }
 
-  const compile = async () => {}
-
-  useEffect(() => {}, [])
-
+  useEffect(() => {
+    console.clear()
+  }, [])
+  
   return (
     <div className={styles.page}>
       <main className={styles.main}>

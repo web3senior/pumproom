@@ -5,7 +5,7 @@ import "@lukso/lsp-smart-contracts/contracts/LSP7DigitalAsset/presets/LSP7Mintab
 import "@lukso/lsp-smart-contracts/contracts/LSP7DigitalAsset/extensions/LSP7Burnable.sol";
 
 /// @title LSP7
-/// @author Aratta Labs
+/// @author Aratta Labs(PumpRoom)
 /// @notice LSP7
 /// @dev You will find the deployed contract addresses on the repo
 /// @custom:emoji 🤖

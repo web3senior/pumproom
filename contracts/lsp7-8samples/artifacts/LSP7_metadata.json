@@ -6,7 +6,23 @@
 	"output": {
 		"abi": [
 			{
-				"inputs": [],
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "_name",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_symbol",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_tokenSupplyCap",
+						"type": "uint256"
+					}
+				],
 				"stateMutability": "nonpayable",
 				"type": "constructor"
 			},
@@ -886,10 +902,10 @@
 			}
 		],
 		"devdoc": {
-			"author": "Aratta Labs",
+			"author": "Aratta Labs(PumpRoom)",
 			"custom:emoji": "🤖",
 			"custom:security-contact": "atenyun@gmail.com",
-			"details": "You will find the deployed contract addresses on the official website",
+			"details": "You will find the deployed contract addresses on the repo",
 			"errors": {
 				"ERC725Y_DataKeysValuesEmptyArray()": [
 					{
@@ -1220,7 +1236,7 @@
 					"details": "Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner."
 				}
 			},
-			"title": "Fish",
+			"title": "LSP7",
 			"version": 1
 		},
 		"userdoc": {
@@ -1265,7 +1281,7 @@
 					"notice": "Setting the following data key value pairs in the ERC725Y storage. Data keys: `dataKeys`, data values: `dataValues`."
 				}
 			},
-			"notice": "Fish token",
+			"notice": "LSP7",
 			"version": 1
 		}
 	},
@@ -1279,7 +1295,7 @@
 			"bytecodeHash": "ipfs"
 		},
 		"optimizer": {
-			"enabled": true,
+			"enabled": false,
 			"runs": 200
 		},
 		"remappings": []
@@ -1533,20 +1549,12 @@
 				"dweb:/ipfs/QmSYuH1AhvJkPK8hNvoPqtExBcgTB42pPRHgTHkS5c5zYW"
 			]
 		},
-		"lsp7-8samples/_error.sol": {
-			"keccak256": "0x0ff53ad6097ff966df2873d1b48e094d5051b2e6c8a16bf081c42da0fe34b3e2",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://c4b3853c82980c0dc7a62168025f7371a82ad29b69ee2fd877433310676b02cc",
-				"dweb:/ipfs/QmQCdvE6kDokcBsykEt9JAy8wMvjmiPeaguBg6CskXf4PD"
-			]
-		},
 		"lsp7-8samples/fish-sample.sol": {
-			"keccak256": "0x636c5a22852656c5939131e57e8d49592a47b5158c4ab832ebc0e2849ed73115",
+			"keccak256": "0x84bee3bf3c6baee2a1cbe74809a17139b2463ed57c737b3299d17e5cdd0e02c5",
 			"license": "Apache-2.0",
 			"urls": [
-				"bzz-raw://e91e7609826322bd526b73c8ba19ea3ca2832492263403c61793e469c604f90b",
-				"dweb:/ipfs/QmTF6i75JQ9zzyTfXD8BgN4fdEMZd5CcoFz7ZcxYKNJxjQ"
+				"bzz-raw://e03e7959c11bba2ac18521780c12f37a1e89d534fad62b9eb27166eefccec1b1",
+				"dweb:/ipfs/QmSsk1njDaeeU6qDiChEZePnTieTfuQpDSecLK5WcfiBGP"
 			]
 		}
 	},
