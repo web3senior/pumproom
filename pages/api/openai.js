@@ -65,7 +65,10 @@ let messages = [
     role: 'system',
     content: `Link to trade lsp7 token on Universal Swap https://universalswaps.io/tokens/lukso/[CONTRACT_ADDRESS]`,
   },
-
+  {
+    role: 'system',
+    content: `Link to update token's metdata including Icon, Image/ banner, and etc on Universal Page https://universal.page/assets/lukso/[CONTRACT_ADDRESS]/metadata`,
+  },
 ]
 
 let tools = [
